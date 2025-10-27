@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 public class CadastroMapper {
     private final CadastroRepository cadastroRepository;
     private final TipoUsuarioRepository tipoUsuarioRepository;
+
     public Cadastro toEntity(CadastroDTO dto) {
         TipoUsuario tipoUsuario = tipoUsuarioRepository.findByDescricao(dto.tipoCadastro().name())
                 .orElseThrow(()-> new InvalidArgumentException(dto.tipoCadastro(),"tipo cadastro inválido"));

@@ -3,6 +3,7 @@ package com.backend.aep_2025.application.service.login;
 import com.backend.aep_2025.api.dto.CadastroDTO;
 import com.backend.aep_2025.api.dto.LoginDTO;
 import com.backend.aep_2025.api.mapper.CadastroMapper;
+import com.backend.aep_2025.application.exception.globalError.InvalidArgumentException;
 import com.backend.aep_2025.application.utils.ValidationUtils;
 import com.backend.aep_2025.application.service.GenericService;
 import com.backend.aep_2025.domain.entity.login.Cadastro;
@@ -25,9 +26,9 @@ public class LoginService extends GenericService<Cadastro, CadastroRepository> {
 
     public Cadastro login(LoginDTO loginDTO){
         Cadastro cadastro = cadastroRepository.getByEmail(loginDTO.email())
-                .orElseThrow(()-> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Email ou senha incorretos"));
+                .orElseThrow(()-> new InvalidArgumentException(HttpStatus.UNAUTHORIZED, "Email ou senha incorretos"));
         if(!cadastro.getPassword().equals(loginDTO.password())){
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Email ou senha incorretos");
+            throw new InvalidArgumentException(HttpStatus.UNAUTHORIZED, "Email ou senha incorretos");
         }
         return cadastro;
     }
