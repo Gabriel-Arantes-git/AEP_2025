@@ -2,6 +2,7 @@ package com.backend.aep_2025.api.mapper;
 
 import com.backend.aep_2025.api.dto.CadastroDTO;
 import com.backend.aep_2025.application.exception.globalError.InvalidArgumentException;
+import com.backend.aep_2025.domain.entity.geral.Professor;
 import com.backend.aep_2025.domain.entity.login.Cadastro;
 import com.backend.aep_2025.domain.entity.login.TipoUsuario;
 import com.backend.aep_2025.domain.repository.login.CadastroRepository;
@@ -27,5 +28,12 @@ public class CadastroMapper {
         novoCadastro.setUsername(dto.username());
 
         return novoCadastro;
+    }
+
+    public Professor toProfessor(CadastroDTO dto,Cadastro cadastro) {
+        Professor professor = new Professor();
+        professor.setNome(dto.username());
+        professor.setCadastro(cadastro);
+        return professor;
     }
 }
