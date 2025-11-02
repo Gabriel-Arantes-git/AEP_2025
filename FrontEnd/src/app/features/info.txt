@@ -1,0 +1,9 @@
+aqui é feita as telas e suas funcoes, sendo separado em
+
+data-acess: onde sao feito as requisicoes para o backend
+
+state: sao o lugar onde sao tratados os objetos e gerenciam seu estado(por exemplo, uma tela acaba interagindo com a variavel do state para
+saber seus atributos e apresentar seus dados)
+
+feature: sao as telas do programa em si
+(nao se esqueca de colocar a rota usada no app.routes, colocando o caminho à ser reconhecido, e para qual componente ele vai redirecionar)
