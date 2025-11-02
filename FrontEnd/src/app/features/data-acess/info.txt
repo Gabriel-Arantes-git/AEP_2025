@@ -1,0 +1,3 @@
+ele é separado em:
+    entities(modelo de entidades que ele recebe do backend)
+    services: responsavel pela requisicao para o backend

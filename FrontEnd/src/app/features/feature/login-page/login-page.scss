@@ -1,0 +1,143 @@
+@use  '../../../styles/variables.scss' as *;
+:host {
+  min-height: 100dvh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  background-color: $cor-fundo-secundario;
+  font-family: $fonte-primaria;
+  color: $cor-texto-principal;
+}
+.login-container {
+  width: 30%;
+  padding: 2.5rem;
+  background-color: $cor-fundo;
+  border-radius: 8px;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+}
+
+/* Header */
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 2.5rem;
+    color: $cor-primaria;
+    font-weight: 700;
+    text-decoration: none;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: $cor-texto-secundario;
+    margin: .25rem 0 0 0;
+  }
+}
+
+/* Abas (Login/Cadastro) */
+.form-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid $cor-borda;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  padding: 0.75rem 1rem;
+  background-color: $cor-fundo;
+  color: $cor-texto-secundario;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color .2s ease, color .2s ease;
+
+  &.active {
+    background-color: $cor-secundaria;
+    color: $cor-fundo;
+  }
+
+  &:not(.active):hover {
+    background-color: $cor-fundo-secundario;
+  }
+}
+
+/* Link "Esqueci a senha" */
+.form-link {
+  display: block;
+  text-align: right;
+  margin-top: -0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: $cor-secundaria;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Botão de formulário em largura total */
+.btn-full {
+  width: 100%;
+  font-size: 1.1rem;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+/* Inputs básicos (se já tiver um design system, pode remover esta base) */
+.form-group {
+  margin-bottom: 1rem;
+
+  .form-control,
+  .form-select {
+    width: 100%;
+    padding: .7rem .9rem;
+    border: 1px solid $cor-borda;
+    border-radius: 6px;
+    background: $cor-fundo;
+    color: $cor-texto-principal;
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease;
+
+    &:focus {
+      border-color: $cor-secundaria;
+      box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15); /* baseado na $cor-secundaria */
+    }
+  }
+
+  label {
+    display: block;
+    margin-bottom: .4rem;
+    font-weight: 500;
+    color: $cor-texto-principal;
+  }
+}
+
+/* Radios */
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: .25rem;
+
+  input[type="radio"] {
+    accent-color: $cor-secundaria;
+  }
+
+  label {
+    color: $cor-texto-principal;
+  }
+}
+
+/* Mensagens de erro das validações reativas */
+.error {
+  display: block;
+  margin-top: .25rem;
+  font-size: .85rem;
+  color: $cor-perigo;
+}
