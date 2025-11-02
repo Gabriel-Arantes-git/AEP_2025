@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'app/styles/variables.scss' as *;
+*,head,body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+button{
+
+    all: unset;
+    display: flex;
+    background-color: $cor-secundaria;
+    color:  $cor-borda;
+    border-radius: 10px;
+    justify-content: center;
+}
+input{
+    
+    all: unset;
+    border: 1.5px solid $cor-borda;
+    border-radius: 5px;
+    padding: 1%;
+}
+
+html, body { height: 100%; }
+body { margin: 0;  }

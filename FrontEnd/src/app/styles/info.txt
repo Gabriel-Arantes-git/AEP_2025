@@ -1,0 +1,1 @@
+local onde fica variaveis globais de scss(padronizacao de fonte, cores estilos)

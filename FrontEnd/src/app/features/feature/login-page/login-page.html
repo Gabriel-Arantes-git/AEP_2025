@@ -1,0 +1,132 @@
+
+<div class="login-container">
+  <header class="login-header">
+    <h1>AEP</h1>
+  </header>
+
+  <!-- Toggle -->
+  <div class="form-toggle">
+    <button type="button"
+            class="toggle-btn"
+            [ngClass]="{ 'active': isLogin() }"
+            (click)="abrirLogin()">
+      Entrar
+    </button>
+
+    <button type="button"
+            class="toggle-btn"
+            [ngClass]="{ 'active': isCadastro() }"
+            (click)="abrirCadastro()">
+      Cadastrar
+    </button>
+  </div>
+
+  <!-- LOGIN -->
+  <form *ngIf="isLogin()"
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmitLogin()"
+        novalidate>
+    <div class="form-group">
+      <label for="login-email">Email</label>
+      <input id="login-email"
+            type="email"
+            class="form-control"
+            
+            formControlName="email"
+            placeholder="seu.email@educacional.com">
+      <small class="error" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+        Informe um e-mail válido.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="login-senha">Senha</label>
+      <input id="login-senha"
+            type="password"
+            class="form-control"
+            formControlName="senha">
+      <small class="error" *ngIf="loginForm.get('senha')?.touched && loginForm.get('senha')?.invalid">
+        Senha obrigatória (mín. 4).
+      </small>
+    </div>
+
+    <a routerLink="/recuperar-senha" class="form-link">Esqueci minha senha</a>
+
+    <button type="submit" class="btn btn-primario btn-full">Entrar</button>
+  </form>
+
+  <!-- CADASTRO -->
+  <form *ngIf="isCadastro()"
+        [formGroup]="cadastroForm"
+        (ngSubmit)="onSubmitCadastro()"
+        novalidate>
+
+    <div class="form-group">
+      <label>Eu sou:</label>
+      <div class="form-check">
+        <input type="radio" id="tipo-aluno"
+              [value]="'aluno'"
+              formControlName="tipoUsuario">
+        <label for="tipo-aluno">Aluno</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" id="tipo-professor"
+              [value]="'professor'"
+              formControlName="tipoUsuario">
+        <label for="tipo-professor">Professor</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cadastro-nome">Nome Completo</label>
+      <input id="cadastro-nome"
+            type="text"
+            class="form-control"
+            formControlName="nome">
+      <small class="error" *ngIf="cadastroForm.get('nome')?.touched && cadastroForm.get('nome')?.invalid">
+        Informe seu nome (mín. 3).
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="cadastro-email">{{ labelEmail() }}</label>
+      <input id="cadastro-email"
+            type="email"
+            class="form-control"
+            formControlName="email"
+            [placeholder]="placeholderEmail()">
+      <small class="error" *ngIf="cadastroForm.get('email')?.touched && cadastroForm.get('email')?.invalid">
+        Informe um e-mail válido.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="cadastro-cpf">CPF</label>
+      <input id="cadastro-cpf"
+            type="text"
+            class="form-control"
+            formControlName="cpf">
+      <small class="error" *ngIf="cadastroForm.get('cpf')?.touched && cadastroForm.get('cpf')?.invalid">
+        CPF é obrigatório.
+      </small>
+    </div>
+
+    <div class="form-group" *ngIf="isAluno()">
+      <label for="cadastro-turma">Turma</label>
+      <dropdown-opcoes [options]="input" label="Escolha a Turma"/>
+    </div>
+
+    <div class="form-group">
+      <label for="cadastro-senha">Crie uma Senha</label>
+      <input id="cadastro-senha"
+            type="password"
+            class="form-control"
+            formControlName="senha">
+      <small class="error" *ngIf="cadastroForm.get('senha')?.touched && cadastroForm.get('senha')?.invalid">
+        Senha obrigatória (mín. 4).
+      </small>
+    </div>
+
+    <button type="submit" class="btn btn-primario btn-full">Criar Conta</button>
+  </form>
+</div>
