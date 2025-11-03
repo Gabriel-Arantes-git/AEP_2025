@@ -17,12 +17,13 @@ export class CadastroState {
     login(email:string,senha:string){
         this.cadastroService.login(email,senha).subscribe({
             next: (cadastro) => {
+                console.log(cadastro)
                 this._cadastro.set(cadastro);
                 this.credencialIncorreta = false;
             },
             error: (err) => {
-                console.error('Error loading users:', err);
                 this.credencialIncorreta = true;
+                console.error(err)
             }
         })
     }

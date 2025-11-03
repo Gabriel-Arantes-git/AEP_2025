@@ -28,10 +28,11 @@ public class LoginService extends GenericService<Cadastro, CadastroRepository> {
         return cadastroRepository;
     }
 
-    public Cadastro login(LoginDTO loginDTO){
-        Cadastro cadastro = cadastroRepository.getByEmail(loginDTO.email())
-                .orElseThrow(()-> new InvalidArgumentException(HttpStatus.UNAUTHORIZED, "Email ou senha incorretos"));
-        if(!cadastro.getPassword().equals(loginDTO.password())){
+    public Cadastro login(LoginDTO loginDTO) throws GenericException{
+        System.out.println(loginDTO.email() + " - " + loginDTO.senha());
+        Cadastro cadastro = cadastroRepository.findCadastroByEmail(loginDTO.email())
+                .orElseThrow(()-> new InvalidArgumentException(HttpStatus.UNAUTHORIZED, "Email incorretos"));
+        if(!loginDTO.senha().equals(cadastro.getPassword())){
             throw new InvalidArgumentException(HttpStatus.UNAUTHORIZED, "Email ou senha incorretos");
         }
         return cadastro;

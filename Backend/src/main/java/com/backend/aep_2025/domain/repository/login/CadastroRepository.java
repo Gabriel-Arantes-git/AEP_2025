@@ -16,15 +16,8 @@ public interface CadastroRepository extends GenericRepository<Cadastro> {
         return Cadastro.class;
     }
 
-    @Query(value = """
-    Select
-        cad
-    from
-        Cadastro cad
-    where
-        cad.email = :email
-""")
-    Optional<Cadastro> getByEmail(@Param("email") String email);
+
+    Optional<Cadastro> findCadastroByEmail(String email);
 
     @Query(value = "SELECT count(cad) > 0 FROM Cadastro cad WHERE cad.email = :email")
     Boolean existsByEmail(@Param("email") String email);
