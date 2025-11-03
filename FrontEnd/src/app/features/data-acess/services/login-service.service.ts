@@ -11,9 +11,6 @@ export class CadastroService{
     private api = environment.apiUrl;
 
     login(email: string, senha: string){
-        let params = new HttpParams().set('email',email).set('password',senha);
-
-        return this.http.get<Cadastro>(
-            `${this.api}/auth/login`,{params});
+        return this.http.post<Cadastro>(`${this.api}/auth/login`, { email, senha });
     }
 }

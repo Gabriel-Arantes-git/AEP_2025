@@ -20,34 +20,30 @@
       Cadastrar
     </button>
   </div>
-
+  <span *ngIf="loginInvalido" class="error">Email e/ou senha incorretos</span>
   <!-- LOGIN -->
   <form *ngIf="isLogin()"
-        [formGroup]="loginForm"
         (ngSubmit)="onSubmitLogin()"
         novalidate>
     <div class="form-group">
       <label for="login-email">Email</label>
       <input id="login-email"
             type="email"
+            name="email"
             class="form-control"
-            
-            formControlName="email"
+            [(ngModel)]="email"
             placeholder="seu.email@educacional.com">
-      <small class="error" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
-        Informe um e-mail válido.
-      </small>
+      
     </div>
 
     <div class="form-group">
       <label for="login-senha">Senha</label>
       <input id="login-senha"
             type="password"
+            name="senha"
             class="form-control"
-            formControlName="senha">
-      <small class="error" *ngIf="loginForm.get('senha')?.touched && loginForm.get('senha')?.invalid">
-        Senha obrigatória (mín. 4).
-      </small>
+            [(ngModel)]="senha">
+      
     </div>
 
     <a routerLink="/recuperar-senha" class="form-link">Esqueci minha senha</a>

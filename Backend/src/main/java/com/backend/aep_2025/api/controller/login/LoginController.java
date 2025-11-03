@@ -23,7 +23,7 @@ public class LoginController implements GenericController<Cadastro, CadastroRepo
         return loginService;
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<Cadastro> login(@RequestBody LoginDTO loginDTO){
         return ResponseEntity.ok(loginService.login(loginDTO));
     }
