@@ -1,7 +1,9 @@
 package com.backend.aep_2025.api.mapper;
 
 import com.backend.aep_2025.api.dto.CadastroDTO;
+import com.backend.aep_2025.api.dto.ResponseCadastroDTO;
 import com.backend.aep_2025.application.exception.globalError.InvalidArgumentException;
+import com.backend.aep_2025.domain.entity.geral.Aluno;
 import com.backend.aep_2025.domain.entity.geral.Professor;
 import com.backend.aep_2025.domain.entity.login.Cadastro;
 import com.backend.aep_2025.domain.entity.login.TipoUsuario;
@@ -35,5 +37,20 @@ public class CadastroMapper {
         professor.setNome(dto.username());
         professor.setCadastro(cadastro);
         return professor;
+    }
+
+    public Aluno toAluno(CadastroDTO dto, Cadastro cadastro) {
+        Aluno aluno = new Aluno();
+        aluno.setNome(dto.username());
+        aluno.setCadastro(cadastro);
+        return aluno;
+    }
+
+    public ResponseCadastroDTO toDtoAluno(Cadastro cadastro, Aluno aluno) {
+        return new ResponseCadastroDTO(cadastro.getEmail(),cadastro.getPassword(),cadastro.getUsername(),cadastro.getCpf(),cadastro.getTipoUsuario(),aluno.getTurma());
+    }
+
+    public ResponseCadastroDTO toDtoProfessor(Cadastro cadastro) {
+        return new ResponseCadastroDTO(cadastro.getEmail(),cadastro.getPassword(),cadastro.getUsername(),cadastro.getCpf(),cadastro.getTipoUsuario(),null);
     }
 }

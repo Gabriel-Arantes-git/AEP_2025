@@ -1,0 +1,78 @@
+/* 1. Importa as variáveis globais */
+@use '../../../styles/variables.scss' as *;
+
+/* 2. Estilos específicos do componente (de visao-dados.css) */
+
+/* Grid para os gráficos no topo */
+.grid-graficos {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* 2/3 para o gráfico principal, 1/3 para o de pizza */
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Um estilo simples de placeholder para seus componentes de gráfico */
+.grafico-placeholder {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $cor-fundo-secundario;
+  border: 1px dashed $cor-borda;
+  border-radius: 6px;
+  color: $cor-texto-secundario;
+  font-weight: 500;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Estilos da Tabela de Alunos */
+.card-tabela {
+  /* Remove o padding padrão do card-body para a tabela ocupar tudo */
+  padding: 0;
+}
+
+.tabela-dados {
+  width: 100%;
+  border-collapse: collapse; /* Estilo de tabela limpo */
+}
+
+.tabela-dados th,
+.tabela-dados td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid $cor-borda;
+}
+
+/* Cabeçalho da Tabela */
+.tabela-dados th {
+  background-color: $cor-fundo-secundario;
+  color: $cor-primaria;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Linhas da Tabela */
+.tabela-dados tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabela-dados tbody tr:hover {
+  background-color: #e6f0ff; /* Destaque azul claro no hover */
+}
+
+/* Indicadores de status (para a coluna de dificuldade) */
+.status-critico {
+  color: $cor-perigo;
+  font-weight: 500;
+}
+.status-atencao {
+  color: $cor-alerta;
+  font-weight: 500;
+}
+.status-ok {
+  color: $cor-sucesso;
+  font-weight: 500;
+}

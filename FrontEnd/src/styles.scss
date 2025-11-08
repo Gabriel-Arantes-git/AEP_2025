@@ -1,25 +1,359 @@
 @use 'app/styles/variables.scss' as *;
-*,head,body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-button{
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Reset Básico e Estilos Globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $fonte-primaria, 'Roboto', sans-serif;
+  background-color: $cor-fundo-secundario; /* Cinza claro no fundo */
+  color: $cor-texto-principal;
+  line-height: 1.6;
+}
+
+html, body { height: 100%; }
+
+/* Inputs e Botões (Reset que você já tinha) */
+button{
     all: unset;
     display: flex;
     background-color: $cor-secundaria;
     color:  $cor-borda;
     border-radius: 10px;
     justify-content: center;
+    cursor: pointer; // Adicionado para melhor usabilidade
 }
 input{
-    
     all: unset;
     border: 1.5px solid $cor-borda;
     border-radius: 5px;
     padding: 1%;
 }
 
-html, body { height: 100%; }
-body { margin: 0;  }
+/* Classe utilitária para centralizar o conteúdo */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 1. Estilos do Cabeçalho (Header) */
+.site-header {
+  background-color: $cor-fundo;
+  border-bottom: 1px solid $cor-borda;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $cor-primaria;
+  text-decoration: none;
+}
+
+.navegacao-principal ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Espaçamento entre os links */
+}
+
+.navegacao-principal a {
+  text-decoration: none;
+  color: $cor-texto-secundario;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.navegacao-principal a:hover {
+  color: $cor-secundaria;
+}
+
+/* Botão de Logout estilizado */
+.btn-logout {
+  padding: 0.5rem 1rem;
+  border: 1px solid $cor-perigo;
+  color: $cor-perigo;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.btn-logout:hover {
+  background-color: $cor-perigo;
+  color: $cor-fundo;
+}
+
+
+/* Estilos do Conteúdo Principal (Main) */
+.site-main {
+  padding: 2.5rem 0;
+}
+
+/* Rodapé (Footer) */
+.site-footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid $cor-borda;
+  background-color: $cor-fundo;
+  color: $cor-texto-secundario;
+  font-size: 0.9rem;
+}
+
+/* --- Botões --- */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+}
+
+.btn-primario {
+  background-color: $cor-secundaria;
+  color: $cor-fundo;
+}
+.btn-primario:hover {
+  background-color: #0B5ED7; /* Um tom mais escuro do azul secundário */
+}
+
+.btn-sucesso {
+  background-color: $cor-sucesso;
+  color: $cor-fundo;
+}
+.btn-sucesso:hover {
+  background-color: #157347; /* Um tom mais escuro */
+}
+
+.btn-outline {
+  border-color: $cor-secundaria;
+  color: $cor-secundaria;
+  background-color: transparent;
+}
+.btn-outline:hover {
+  background-color: $cor-secundaria;
+  color: $cor-fundo;
+}
+
+
+/* --- Cards (O container principal) --- */
+.card {
+  background-color: $cor-fundo;
+  border: 1px solid $cor-borda;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-bottom: 1.5rem;
+  overflow: hidden; /* Garante que o padding funcione com o header */
+}
+
+.card-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid $cor-borda;
+}
+.card-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: $cor-primaria;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-body p:last-child {
+  margin-bottom: 0;
+}
+
+.card-footer {
+  padding: 1rem 1.5rem;
+  background-color: $cor-fundo-secundario;
+  border-top: 1px solid $cor-borda;
+  text-align: right;
+}
+
+
+/* --- Cabeçalho da Página (Abaixo do Header principal) --- */
+.pagina-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  /* Adiciona uma borda sutil para separar do conteúdo */
+  border-bottom: 1px solid $cor-borda;
+  padding-bottom: 1rem;
+}
+
+.pagina-header h1 {
+  color: $cor-primaria;
+  margin: 0;
+}
+
+
+/* --- Layout em Grid (Para organizar os cards) --- */
+/* Um grid responsivo simples */
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Modificador para o grid aceitar colunas de tamanhos diferentes */
+.grid-layout.col-2-1 {
+  /* 2/3 para a primeira coluna, 1/3 para a segunda */
+  grid-template-columns: 2fr 1fr;
+}
+
+
+/* --- Componente de Alerta/Notificação --- */
+.alerta {
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  border: 1px solid transparent;
+}
+.alerta-info {
+  background-color: #E6F0FF; /* Azul bem claro */
+  border-color: $cor-secundaria;
+  color: $cor-primaria;
+}
+.alerta-sucesso {
+  background-color: #E8F3ED; /* Verde bem claro */
+  border-color: $cor-sucesso;
+  color: #115733;
+}
+
+
+/* --- Lista de Itens (Ex: lista de formulários) --- */
+.lista-itens {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.lista-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid $cor-borda;
+}
+.lista-item:last-child {
+  border-bottom: none;
+}
+.lista-item-info {
+  display: flex;
+  flex-direction: column;
+}
+.lista-item-info strong {
+  font-size: 1rem;
+  color: $cor-texto-principal;
+}
+.lista-item-info span {
+  font-size: 0.9rem;
+  color: $cor-texto-secundario;
+}
+
+/* --- Componentes dos Formulários --- */
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: $cor-texto-principal;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: $cor-texto-principal;
+  background-color: $cor-fundo;
+  border: 1px solid $cor-borda;
+  border-radius: 6px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  outline: 0;
+  border-color: $cor-secundaria;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); /* Sombra de foco no azul */
+}
+
+/* Estilo para Select (Dropdown) */
+.form-select {
+  /* Herda os estilos do .form-control */
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px 12px;
+}
+
+/* Estilo para Radio/Checkbox */
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.form-check label {
+  margin-bottom: 0; /* Reseta o margin-bottom da label */
+}
+
+/* --- Abas de Navegação (Tabs) ---              */
+
+.nav-abas {
+  display: flex;
+  gap: 0.5rem;
+  /* Colocamos a borda no container pai */
+  border-bottom: 2px solid $cor-borda; 
+  margin-bottom: 1.5rem;
+}
+
+.aba-item {
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  color: $cor-texto-secundario;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-bottom: none; /* A borda inferior fica no container */
+  border-radius: 6px 6px 0 0; /* Arredonda cantos superiores */
+  
+  /* Truque para "sentar" na borda inferior */
+  transform: translateY(2px); 
+}
+
+.aba-item:hover {
+  color: $cor-primaria;
+  background-color: $cor-fundo-secundario;
+}
+
+.aba-item.active {
+  color: $cor-secundaria;
+  border-color: $cor-borda;
+  /* A "mágica" de cortar a linha inferior */
+  border-bottom-color: $cor-fundo; 
+  background-color: $cor-fundo;
+}

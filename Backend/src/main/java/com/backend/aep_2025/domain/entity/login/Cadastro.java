@@ -1,6 +1,7 @@
 package com.backend.aep_2025.domain.entity.login;
 
 import com.backend.aep_2025.domain.entity.GenericEntity;
+import com.backend.aep_2025.domain.entity.geral.Turma;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -24,5 +25,7 @@ public class Cadastro implements GenericEntity {
     @ManyToOne
     @JoinColumn(name = "idkey_tipo_usuario", referencedColumnName = "idkey")
     private TipoUsuario tipoUsuario;
+
+
 
 }

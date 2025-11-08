@@ -1,0 +1,186 @@
+<header class="site-header">
+  <div class="container">
+    <div class="logo">
+      <a routerLink="/">AEP</a>
+    </div>
+    <nav class="navegacao-principal">
+      <ul>
+        <li><a routerLink="/professor/dashboard">Visão Geral</a></li>
+        <li><a routerLink="/professor/turmas">Minhas Turmas</a></li>
+        <li><a routerLink="/professor/criar-formulario" style="color: var(--cor-secundaria);">Criar Formulário</a></li>
+        <li><a routerLink="/login" class="btn-logout">Sair</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="site-main">
+  <div class="container">
+
+    <div class="pagina-header">
+      <h1>Criar Novo Formulário</h1>
+    </div>
+
+    <form action="#" method="POST">
+      <div class="grid-layout col-2-1">
+
+        <section>
+          <div class="card">
+            <div class="card-header">
+              <h3>Questões</h3>
+            </div>
+            <div class="card-body">
+
+              <div class="questao-bloco">
+                <div class="questao-header">
+                  <h4>Questão 1</h4>
+                  <button type="button" class="btn btn-remover-questao">Remover</button>
+                </div>
+
+                <div class="form-group">
+                  <label for="q1-enunciado">Enunciado da Questão</label>
+                  <textarea id="q1-enunciado" class="form-control" rows="3"
+                    placeholder="Ex: Qual o resultado da permutação simples de P(5)?"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="q1-topico">Tópico da Matéria (Obrigatório)</label>
+                  <select id="q1-topico" class="form-control form-select">
+                    <option disabled selected>Selecione o tópico que esta questão avalia</option>
+                    <option value="analise-comb">Matemática - Análise Combinatória</option>
+                    <option value="probabilidade">Matemática - Probabilidade</option>
+                    <option value="guerra-fria">História - Guerra Fria</option>
+                    <option value="crise-29">História - Crise de 1929</option>
+                    <option value="leis-newton">Física - Leis de Newton</option>
+                  </select>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid var(--cor-borda); margin: 1.5rem 0;">
+
+                <div class="opcoes-resposta">
+                  <div class="grid-opcoes">
+                    <div class="form-group">
+                      <label for="q1-opA">Opção A</label>
+                      <input type="text" id="q1-opA" class="form-control" placeholder="Texto da Opção A">
+                    </div>
+                    <div class="form-group">
+                      <label for="q1-opB">Opção B</label>
+                      <input type="text" id="q1-opB" class="form-control" placeholder="Texto da Opção B">
+                    </div>
+                    <div class="form-group">
+                      <label for="q1-opC">Opção C</label>
+                      <input type="text" id="q1-opC" class="form-control" placeholder="Texto da Opção C">
+                    </div>
+                    <div class="form-group">
+                      <label for="q1-opD">Opção D</label>
+                      <input type="text" id="q1-opD" class="form-control" placeholder="Texto da Opção D">
+                    </div>
+                  </div>
+                </div>
+              </div> 
+              <div class="questao-bloco" *ngIf="addQuestao">
+                
+                <div class="questao-header">
+                  <h4>Questão 2</h4>
+                  <button type="button" class="btn btn-remover-questao" (click)="removerQuestao()">Remover</button>
+                </div>
+
+                <div class="form-group">
+                  <label for="q1-enunciado">Enunciado da Questão</label>
+                  <textarea id="q1-enunciado" class="form-control" rows="3"
+                    placeholder="Ex: Qual o resultado da permutação simples de P(5)?"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="q1-topico">Tópico da Matéria (Obrigatório)</label>
+                  <select id="q1-topico" class="form-control form-select">
+                    <option disabled selected>Selecione o tópico que esta questão avalia</option>
+                    <option value="analise-comb">Matemática - Análise Combinatória</option>
+                    <option value="probabilidade">Matemática - Probabilidade</option>
+                    <option value="guerra-fria">História - Guerra Fria</option>
+                    <option value="crise-29">História - Crise de 1929</option>
+                    <option value="leis-newton">Física - Leis de Newton</option>
+                  </select>
+                </div>
+                <div class="opcoes-resposta">
+                  <div class="grid-opcoes">
+                    <div class="form-group">
+                      <label for="q1-opA">Opção A</label>
+                      <input type="text" id="q1-opA" class="form-control" placeholder="Texto da Opção A">
+                    </div>
+                    <div class="form-group">
+                      <label for="q1-opB">Opção B</label>
+                      <input type="text" id="q1-opB" class="form-control" placeholder="Texto da Opção B">
+                    </div>
+                    <div class="form-group">
+                      <label for="q1-opC">Opção C</label>
+                      <input type="text" id="q1-opC" class="form-control" placeholder="Texto da Opção C">
+                    </div>
+                    <div class="form-group">
+                      <label for="q1-opD">Opção D</label>
+                      <input type="text" id="q1-opD" class="form-control" placeholder="Texto da Opção D">
+                    </div>
+                  </div>
+                </div>
+              </div>  <button type="button" style="width: 700px" class="btn btn-add-questao" (click)="adicionarQuestao()">
+                + Adicionar Nova Questão
+              </button>
+
+            </div>
+          </div> </section>
+
+        <aside>
+          <div class="card">
+            <div class="card-header">
+              <h3>Configurações</h3>
+            </div>
+            <div class="card-body">
+
+              <div class="form-group">
+                <label for="form-titulo">Título do Formulário</label>
+                <input type="text" id="form-titulo" class="form-control" placeholder="Ex: Revisão - Matemática 3ºB">
+              </div>
+
+              <div class="form-group">
+                <label for="form-turma">Designar para a Turma</label>
+                <select id="form-turma" class="form-control form-select">
+                  <option value="3B">3º Ano B</option>
+                  <option value="3A">3º Ano A</option>
+                  <option value="2A">2º Ano A</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="form-data-limite">Data Limite para Resposta</label>
+                <input type="date" id="form-data-limite" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="form-data-limite">Data de Liberação para Responder</label>
+                <input type="date" id="form-data-limite" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label for="form-instrucoes">Instruções (Opcional)</label>
+                <textarea id="form-instrucoes" class="form-control" rows="4"
+                  placeholder="Ex: Consulte o capítulo 5..."></textarea>
+              </div>
+
+            </div>
+          </div>
+        </aside>
+
+      </div> <div class="form-acoes-rodape">
+        <button type="button" class="btn btn-outline" >Salvar como Rascunho</button>
+        <button type="button" class="btn btn-primario" (click)="enviar()" routerLink="/professor/dashboard">Publicar Formulário</button>
+      </div>
+
+    </form>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 - AEP (Unicesumar). Todos os direitos reservados.</p>
+  </div>
+</footer>

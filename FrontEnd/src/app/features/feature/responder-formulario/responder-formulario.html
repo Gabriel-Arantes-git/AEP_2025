@@ -1,0 +1,117 @@
+<header class="site-header">
+  <div class="container">
+    <div class="logo">
+      <a routerLink="/">AEP</a>
+    </div>
+    <nav class="navegacao-principal">
+      <ul>
+        <li><a routerLink="/aluno/dashboard">Meu Desempenho</a></li>
+        <li><a routerLink="/aluno/formularios" style="color: var(--cor-secundaria);">Formulários</a></li>
+        <li><a routerLink="/aluno/perfil">Perfil</a></li>
+        <li><a routerLink="/login" class="btn-logout">Sair</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="site-main">
+  <div class="container" style="max-width: 900px;">
+    <div class="pagina-header">
+      <h1>Matemática - Análise Combinatória</h1>
+    </div>
+
+    <div class="alerta alerta-info">
+      <strong>Enviado por:</strong> Prof. Carlos<br>
+      <strong>Instruções:</strong> Responda com base no material da aula 5. Você tem apenas uma tentativa.<br>
+      <strong>Prazo de Entrega:</strong> 05/11/2025 às 23:59
+    </div>
+
+    <form action="#">
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Questão 1</h3>
+        </div>
+        <div class="card-body">
+
+          <p class="questao-enunciado">
+            Qual o resultado da permutação simples de P(5)?
+          </p>
+
+          <ul class="opcoes-resposta-aluno">
+
+            <li>
+              <label>
+                <input type="radio" name="questao-1" value="A">
+                <span class="radio-custom"></span>
+                <span class="opcao-letra">A)</span>
+                <span class="opcao-texto">100</span>
+              </label>
+            </li>
+
+            <li>
+              <label>
+                <input type="radio" name="questao-1" value="B">
+                <span class="radio-custom"></span>
+                <span class="opcao-letra">B)</span>
+                <span class="opcao-texto">120</span>
+              </label>
+            </li>
+
+            <li>
+              <label>
+                <input type="radio" name="questao-1" value="C">
+                <span class="radio-custom"></span>
+                <span class="opcao-letra">C)</span>
+                <span class="opcao-texto">25</span>
+              </label>
+            </li>
+
+            <li>
+              <label>
+                <input type="radio" name="questao-1" value="D">
+                <span class="radio-custom"></span>
+                <span class="opcao-letra">D)</span>
+                <span class="opcao-texto">50</span>
+              </label>
+            </li>
+
+          </ul>
+        </div>
+      </div> <div class="card">
+        <div class="card-header">
+          <h3>Questão 2</h3>
+        </div>
+        <div class="card-body">
+
+          <p class="questao-enunciado">
+            qual o resultado do de possiveis combinacoes de roupas sabendo que uma pessoa tem 3 camisetas, 2 calcas e 2 tenis
+          </p>
+
+          <ul class="opcoes-resposta-aluno">
+            <li><label><input type="radio" name="questao-2" value="A"><span class="radio-custom"></span><span
+                  class="opcao-letra">A)</span><span class="opcao-texto">12</span></label></li>
+            <li><label><input type="radio" name="questao-2" value="B"><span class="radio-custom"></span><span
+                  class="opcao-letra">B)</span><span class="opcao-texto">16</span></label></li>
+            <li><label><input type="radio" name="questao-2" value="C"><span class="radio-custom"></span><span
+                  class="opcao-letra">C)</span><span class="opcao-texto">10</span></label></li>
+            <li><label><input type="radio" name="questao-2" value="D"><span class="radio-custom"></span><span
+                  class="opcao-letra">D)</span><span class="opcao-texto">21</span></label></li>
+          </ul>
+        </div>
+      </div> <div class="form-acoes-rodape" style="justify-content: center;">
+        <button type="submit" class="btn btn-sucesso" style="width: 50%; font-size: 1.1rem;" routerLink="/aluno/dashboard" (click)="enviarMudanca()">
+          Entregar Respostas
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 - AEP (Unicesumar). Todos os direitos reservados.</p>
+  </div>
+</footer>

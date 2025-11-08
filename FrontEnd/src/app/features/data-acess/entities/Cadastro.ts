@@ -4,5 +4,16 @@ export interface Cadastro{
     password: string;
     cpf: string;
     email: string;
-    tipoUsuario: string;
+    tipoUsuario: {
+        id: number,
+        descricao: string
+    };
+    turma?: {
+        id: number,
+        serie: string,
+        nivel_ensino: {
+            id: number,
+            descricao: string
+        }
+    };
 }
