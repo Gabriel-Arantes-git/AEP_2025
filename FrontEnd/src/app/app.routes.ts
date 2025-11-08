@@ -19,7 +19,6 @@ export const routes: Routes = [
         path: 'login',
         component: LoginPage
     },
-    // Rotas do Professor
     {
         path: 'professor/dashboard',
         component: DashboardProfessorComponent
@@ -36,8 +35,6 @@ export const routes: Routes = [
         path: 'professor/visao-dados-turma',
         component: VisaoDadosTurmaComponent
     },
-
-    // Rotas do Aluno
     {
         path: 'aluno/dashboard',
         component: DashboardAlunoComponent
@@ -46,7 +43,6 @@ export const routes: Routes = [
         path: 'aluno/formularios',
         component: FormulariosAlunoComponent
     },
-    // 2. Adicione a nova rota
     {
         path: 'aluno/responder-formulario',
         component: ResponderFormularioComponent
