@@ -3,6 +3,7 @@ package com.backend.aep_2025.api.controller.login;
 import com.backend.aep_2025.api.controller.GenericController;
 import com.backend.aep_2025.api.dto.CadastroDTO;
 import com.backend.aep_2025.api.dto.LoginDTO;
+import com.backend.aep_2025.api.dto.ResponseCadastroDTO;
 import com.backend.aep_2025.application.service.GenericService;
 import com.backend.aep_2025.application.service.login.LoginService;
 import com.backend.aep_2025.domain.entity.login.Cadastro;
@@ -24,12 +25,13 @@ public class LoginController implements GenericController<Cadastro, CadastroRepo
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Cadastro> login(@RequestBody LoginDTO loginDTO){
+    public ResponseEntity<ResponseCadastroDTO> login(@RequestBody LoginDTO loginDTO){
+
         return ResponseEntity.ok(loginService.login(loginDTO));
     }
 
     @PostMapping("/registrar")
-    public ResponseEntity<Cadastro> registrar(@RequestBody CadastroDTO cadastroDTO){
+    public ResponseEntity<ResponseCadastroDTO> registrar(@RequestBody CadastroDTO cadastroDTO){
         return ResponseEntity.ok(loginService.registrar(cadastroDTO));
     }
 
