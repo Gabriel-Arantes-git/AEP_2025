@@ -1,0 +1,134 @@
+<header class="site-header">
+  <div class="container">
+    <div class="logo">
+      <a routerLink="/">AEP</a>
+    </div>
+    <nav class="navegacao-principal">
+      <ul>
+        <li><a routerLink="/professor/dashboard" style="color: var(--cor-secundaria);">Visão Geral</a></li>
+        <li><a routerLink="/professor/turmas">Minhas Turmas</a></li>
+        <li><a routerLink="/professor/criar-formulario">Criar Formulário</a></li>
+        <li><a routerLink="/login" class="btn-logout">Sair</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="site-main">
+  <div class="container">
+
+    <div class="pagina-header">
+      <h1>Olá, Professor(a) {{nome}}!</h1>
+      <a routerLink="/professor/criar-formulario" class="btn btn-primario">Criar Novo Formulário</a>
+    </div>
+
+    <div class="alerta alerta-info">
+      <strong>Ponto de Atenção:</strong> 45% dos alunos do 3º Ano B apresentaram dificuldade em "Análise Combinatória".
+    </div>
+
+    <div class="grid-layout col-2-1">
+
+      <section>
+        <div class="card">
+          <div class="card-header">
+            <h3>Tópicos com Maior Dificuldade (Geral)</h3>
+          </div>
+          <div class="card-body">
+            <p style="color: var(--cor-texto-secundario); margin-bottom: 1.5rem;">
+              Tópicos onde os alunos (todas as turmas) mais erraram nos últimos formulários.
+            </p>
+
+            <ul class="lista-itens">
+              <li class="lista-item">
+                <div class="lista-item-info">
+                  <strong>1. Matemática: Análise Combinatória</strong>
+                  <span>Média de acertos: 45% (Turma: 3º B)</span>
+                </div>
+                <span style="color: var(--cor-perigo); font-weight: 500;">Crítico</span>
+              </li>
+              <li class="lista-item">
+                <div class="lista-item-info">
+                  <strong>2. História: Crise de 1929</strong>
+                  <span>Média de acertos: 58% (Turma: 2º A)</span>
+                </div>
+                <span style="color: var(--cor-alerta); font-weight: 500;">Atenção</span>
+              </li>
+              <li class="lista-item">
+                <div class="lista-item-info">
+                  <strong>3. Física: MRUV (Mov. Retilíneo)</strong>
+                  <span>Média de acertos: 62% (Turma: 3º B)</span>
+                </div>
+                <span style="color: var(--cor-alerta); font-weight: 500;">Atenção</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer" style="text-align: left;">
+            <a routerLink="/professor/relatorios" class="btn btn-outline">Ver Relatório Detalhado</a>
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <div class="card-header">
+            <h3>Formulários Ativos</h3>
+          </div>
+          <div class="card-body">
+            <ul class="lista-itens">
+              <li class="lista-item">
+                <div class="lista-item-info">
+                  <strong>Física - Leis de Newton</strong>
+                  <span>Turma: 3º B (15/30 Respostas)</span>
+                </div>
+                <a href="#" class="btn btn-outline">Ver</a>
+              </li>
+              <li class="lista-item">
+                <div class="lista-item-info">
+                  <strong>História - Guerra Fria</strong>
+                  <span>Turma: 2º A (28/32 Respostas)</span>
+                </div>
+                <a href="#" class="btn btn-outline">Ver</a>
+              </li>
+
+              <li class="lista-item" *ngIf="novaLista">
+                <div class="lista-item-info">
+                  <strong>Teste</strong>
+                  <span>Turma: 3º B (0/35 Respostas)</span>
+                </div>
+                <a href="#" class="btn btn-outline">Ver</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Taxa de Conclusão (Geral)</h3>
+          </div>
+          <div class="card-body">
+            <p style="color: var(--cor-texto-secundario); text-align: center; padding: 2rem 0;">
+              <pie-graphic [values]="[29,71]" [labels]="['acertos','erros']" graphicLabel="'Porcentagem de Acerto'"/>
+            </p>
+          </div>
+        </div>
+        <div class="card" >
+          <div class="card-header">
+            <h3>Média das Turmas</h3>
+          </div>
+          <div class="card-body">
+            <p style="color: var(--cor-texto-secundario); text-align: center; padding: 2rem 0;">
+               <pie-graphic [values]="[78,63,72]" [labels]="['turma A','turma B','turma C']" graphicLabel="Média:"/>
+            </p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 - AEP (Unicesumar). Todos os direitos reservados.</p>
+  </div>
+</footer>

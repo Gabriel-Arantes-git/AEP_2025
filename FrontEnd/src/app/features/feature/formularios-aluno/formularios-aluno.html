@@ -1,0 +1,61 @@
+<header class="site-header">
+  <div class="container">
+    <div class="logo">
+      <a routerLink="/">AEP</a>
+    </div>
+    <nav class="navegacao-principal">
+      <ul>
+        <li><a routerLink="/aluno/dashboard">Meu Desempenho</a></li>
+        <li><a routerLink="/aluno/formularios" style="color: var(--cor-secundaria);">Formulários</a></li>
+        <li><a routerLink="/aluno/perfil">Perfil</a></li>
+        <li><a routerLink="/login" class="btn-logout">Sair</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="site-main">
+  <div class="container" style="max-width: 900px;">
+    <div class="pagina-header">
+      <h1>Meus Formulários</h1>
+    </div>
+
+    <div class="card">
+      <div class="card-header" style="padding: 0 1.5rem; border-bottom: none;">
+        <nav class="nav-abas">
+          <a href="#" class="aba-item active">Pendentes (2)</a>
+          <a href="#" class="aba-item">Concluídos (1)</a>
+          <a href="#" class="aba-item">Corrigidos (0)</a>
+        </nav>
+      </div>
+
+      <div class="card-body">
+        <ul class="lista-itens">
+
+          <li class="lista-item">
+            <div class="lista-item-info">
+              <strong>Matemática - Análise Combinatória</strong>
+              <span>Enviado pelo Prof. Carlos (Prazo: 05/11)</span>
+            </div>
+            <a routerLink="/aluno/responder-formulario" class="btn btn-sucesso">Responder</a>
+          </li>
+
+          <li class="lista-item">
+            <div class="lista-item-info">
+              <strong>História - Guerra Fria (Cap. 5 e 6)</strong>
+              <span>Enviado pela Profa. Ana (Prazo: 08/11)</span>
+            </div>
+            <a routerLink="/aluno/responder-formulario" class="btn btn-sucesso">Responder</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 - AEP (Unicesumar). Todos os direitos reservados.</p>
+  </div>
+</footer>

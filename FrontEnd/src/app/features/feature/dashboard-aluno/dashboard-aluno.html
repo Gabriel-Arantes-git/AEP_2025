@@ -1,0 +1,190 @@
+<header class="site-header">
+  <div class="container">
+    <div class="logo">
+      <a routerLink="/">AEP</a>
+    </div>
+    <nav class="navegacao-principal">
+      <ul>
+        <li><a routerLink="/aluno/dashboard" style="color: var(--cor-secundaria);">Meu Desempenho</a></li>
+        <li><a routerLink="/aluno/formularios">Formulários</a></li>
+        <li><a routerLink="/aluno/perfil">Perfil</a></li>
+        <li><a routerLink="/login" class="btn-logout">Sair</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="site-main">
+  <div class="container">
+
+    <div class="pagina-header">
+      <h1>Olá, {{nome}}</h1>
+      <span style="color: var(--cor-texto-secundario);">Turma: {{turma}}</span>
+    </div>
+
+    <div class="alerta alerta-info">
+      <strong *ngIf="!situacaoQuestao">Você tem 2 formulários pendentes.</strong> Não deixe para a última hora!
+      <strong *ngIf="situacaoQuestao">Você tem 1 formulários pendentes.</strong> Não deixe para a última hora!
+    </div>
+
+    <div class="grid-layout col-2-1">
+
+      <!-- COLUNA PRINCIPAL -->
+      <section>
+        <!-- KPIs RÁPIDOS -->
+        <div class="grid-kpis" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1rem;">
+          <div class="card kpi">
+            <div class="card-body" style="display:grid;gap:.25rem;">
+              <span style="color:var(--cor-texto-secundario);font-size:.85rem;">Média Geral</span>
+              <strong style="font-size:1.5rem;">7,1</strong>
+              <span style="color:var(--cor-sucesso);font-size:.85rem;">+0,3 vs. última semana</span>
+            </div>
+          </div>
+          <div class="card kpi">
+            <div class="card-body" style="display:grid;gap:.25rem;">
+              <span style="color:var(--cor-texto-secundario);font-size:.85rem;">Entregas no mês</span>
+              <strong style="font-size:1.5rem;">12/15</strong>
+              <span style="color:var(--cor-texto-secundario);font-size:.85rem;">80% concluído</span>
+            </div>
+          </div>
+          <div class="card kpi">
+            <div class="card-body" style="display:grid;gap:.25rem;">
+              <span style="color:var(--cor-texto-secundario);font-size:.85rem;">Presença</span>
+              <strong style="font-size:1.5rem;">92%</strong>
+              <span style="color:var(--cor-aviso);font-size:.85rem;">2 faltas recentes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORMULÁRIOS ABERTOS (inalterado) -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Formulários Abertos</h3>
+          </div>
+          <div class="card-body">
+            <ul class="lista-itens">
+
+              <li class="lista-item">
+                <div class="lista-item-info">
+                  <strong>Matemática - Análise Combinatória</strong>
+                  <span>Enviado pelo Prof. Carlos</span>
+                </div>
+                <a routerLink="/aluno/responder-formulario" class="btn btn-sucesso" *ngIf="!situacaoQuestao">Responder</a>
+                <a class="btn btn-outline" *ngIf="situacaoQuestao">Feito</a>
+              </li>
+
+              <li class="lista-item">
+                <div class="lista-item-info">
+                  <strong>História - Guerra Fria (Cap. 5 e 6)</strong>
+                  <span>Enviado pela Profa. Ana</span>
+                </div>
+                <a routerLink="/aluno/responder-formulario" class="btn btn-sucesso">Responder</a>
+              </li>
+
+              <li class="lista-item">
+                <div class="lista-item-info">
+                  <strong>Física - Leis de Newton (Revisão)</strong>
+                  <span style="color: var(--cor-sucesso);">Concluído em 28/10</span>
+                </div>
+                <a class="btn btn-outline">Feito</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+
+        <!-- PRÓXIMOS PRAZOS (sem gráficos novos) -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Próximos Prazos (7 dias)</h3>
+          </div>
+          <div class="card-body">
+            <ul class="lista-prazos" style="display:grid;gap:.5rem;">
+              <li style="display:flex;align-items:center;justify-content:space-between;">
+                <div>
+                  <strong>Redação – Tema: Meio Ambiente</strong>
+                  <span class="sub" style="display:block;color:var(--cor-texto-secundario);font-size:.9rem;">Entrega: 10/11</span>
+                </div>
+                <span class="chip" style="border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:.2rem .6rem;">2 dias</span>
+              </li>
+              <li style="display:flex;align-items:center;justify-content:space-between;">
+                <div>
+                  <strong>Matemática – Lista 3</strong>
+                  <span class="sub" style="display:block;color:var(--cor-texto-secundario);font-size:.9rem;">Entrega: 12/11</span>
+                </div>
+                <span class="chip" style="border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:.2rem .6rem;">4 dias</span>
+              </li>
+              <li style="display:flex;align-items:center;justify-content:space-between;">
+                <div>
+                  <strong>História – Quiz Cap. 6</strong>
+                  <span class="sub" style="display:block;color:var(--cor-texto-secundario);font-size:.9rem;">Entrega: 14/11</span>
+                </div>
+                <span class="chip" style="border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:.2rem .6rem;">6 dias</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- COLUNA LATERAL -->
+      <aside>
+        <div class="card">
+          <div class="card-header">
+            <h3>Média por Matéria</h3>
+          </div>
+          <div class="card-body">
+            <p style="color: var(--cor-texto-secundario); text-align: center; padding: 2rem 0;">
+              <app-bar-graphic
+                [values]="[6,7,6,7]"
+                [labels]="['matematica','historia','portugues','artes']">
+              </app-bar-graphic>
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Progresso Recente</h3>
+          </div>
+          <div class="card-body">
+            <p style="color: var(--cor-texto-secundario); text-align: center; padding: 2rem 0;">
+              <pie-graphic
+                [values]="[12,3]"
+                [labels]="['feitas','não entregues']"
+                graphicLabel="'atividades entregues:'">
+              </pie-graphic>
+            </p>
+            <!-- KPIs complementares ao pie (texto puro) -->
+            <div style="display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;">
+              <span class="chip" style="border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:.2rem .6rem;background:color-mix(in srgb, var(--cor-sucesso) 12%, transparent);">Taxa: 80%</span>
+              <span class="chip" style="border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:.2rem .6rem;">Pendentes: 3</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- METAS DA SEMANA (texto puro, sem gráfico novo) -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Metas da Semana</h3>
+          </div>
+          <div class="card-body">
+            <ul style="display:grid;gap:.5rem;">
+              <li><strong>Estudo</strong>: 4.3/6h</li>
+              <li><strong>Atividades</strong>: 3/5 entregues</li>
+              <li><strong>Revisões</strong>: 2/5 concluídas</li>
+            </ul>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 - AEP (Unicesumar). Todos os direitos reservados.</p>
+  </div>
+</footer>

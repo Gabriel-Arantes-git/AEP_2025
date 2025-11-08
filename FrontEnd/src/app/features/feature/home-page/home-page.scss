@@ -1,0 +1,153 @@
+@use '../../../styles/variables.scss' as *;
+
+/* Conteúdo de 'landing-page.css' (do protótipo) */
+
+/* --- 1. Header Público --- */
+.site-header-public {
+  background-color: $cor-fundo;
+  border-bottom: 1px solid $cor-borda;
+  padding: 1rem 0;
+}
+
+.site-header-public .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navegação pública (Login/Cadastro) */
+.nav-publica ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-publica a {
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.nav-publica .btn-login-nav {
+  color: $cor-secundaria;
+  border: 1px solid $cor-borda;
+}
+.nav-publica .btn-login-nav:hover {
+  background-color: $cor-fundo-secundario;
+}
+.nav-publica .btn-cadastro-nav {
+  background-color: $cor-secundaria;
+  color: $cor-fundo;
+  border: 1px solid $cor-secundaria;
+}
+.nav-publica .btn-cadastro-nav:hover {
+  background-color: #0B5ED7; /* Azul mais escuro */
+}
+
+
+/* --- 2. Seção Hero (Apresentação) --- */
+.hero-section {
+  background-color: $cor-primaria; /* Fundo azul escuro */
+  color: $cor-fundo;
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-section p.subtitulo {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  color: rgba(255, 255, 255, 0.85); /* Branco com transparência */
+  line-height: 1.6;
+}
+
+/* Botão de Destaque */
+.btn-hero {
+  font-size: 1.1rem;
+  padding: 0.85rem 2rem;
+  background-color: $cor-fundo;
+  color: $cor-primaria;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+.btn-hero:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+
+/* --- 3. Seção de Recursos (Para quem?) --- */
+.recursos-section {
+  padding: 4rem 0;
+}
+
+.recursos-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.recursos-header h2 {
+  font-size: 2.5rem;
+  color: $cor-primaria;
+  margin-bottom: 0.5rem;
+}
+.recursos-header p {
+  font-size: 1.1rem;
+  color: $cor-texto-secundario;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Grid para os 3 perfis */
+.grid-recursos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card de Recurso (reaproveitando .card) */
+.card-recurso {
+  text-align: center;
+}
+.card-recurso .card-body {
+  padding: 2rem;
+}
+.card-recurso h3 {
+  font-size: 1.5rem;
+  color: $cor-secundaria;
+  margin-bottom: 1rem;
+}
+/* Ícone (placeholder) */
+.card-recurso .icone {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: $cor-primaria;
+}
+
+
+/* --- 4. Seção Call to Action (CTA) --- */
+.cta-section {
+  background-color: $cor-fundo-secundario;
+  padding: 4rem 0;
+  text-align: center;
+}
+.cta-section h2 {
+  font-size: 2.2rem;
+  color: $cor-primaria;
+  margin-bottom: 1rem;
+}
+.cta-section p {
+  color: $cor-texto-secundario;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}

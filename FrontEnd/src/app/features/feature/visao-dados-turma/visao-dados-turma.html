@@ -1,0 +1,115 @@
+<header class="site-header">
+  <div class="container">
+    <div class="logo">
+      <a routerLink="/">AEP</a>
+    </div>
+    <nav class="navegacao-principal">
+      <ul>
+        <li><a routerLink="/professor/dashboard">Visão Geral</a></li>
+        <li><a routerLink="/professor/turmas" style="color: var(--cor-secundaria);">Minhas Turmas</a></li>
+        <li><a routerLink="/professor/criar-formulario">Criar Formulário</a></li>
+        <li><a routerLink="/login" class="btn-logout">Sair</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="site-main">
+  <div class="container">
+
+    <div class="pagina-header">
+      <h1>Visão de Dados - Turma 3º Ano B</h1>
+      <a routerLink="/professor/criar-formulario" class="btn btn-outline">Enviar novo formulário para esta turma</a>
+    </div>
+
+    <div class="grid-graficos">
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Tópicos de Dificuldade (Matemática)</h3>
+        </div>
+        <div class="card-body">
+          <div class="grafico-placeholder">
+            [Aqui entra seu componente genérico de Gráfico de Colunas]
+            <br>
+            (Ex: Análise Combinatória: 45% acertos, Probabilidade: 70%, ...)
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Desempenho Geral</h3>
+        </div>
+        <div class="card-body">
+          <div class="grafico-placeholder" style="height: 350px;">
+            [Aqui entra seu componente genérico de Gráfico de Pizza]
+            <br>
+            (Ex: 20% Crítico, 30% Atenção, 50% OK)
+          </div>
+        </div>
+      </div>
+
+    </div> <div class="card">
+      <div class="card-header">
+        <h3>Desempenho Individual dos Alunos</h3>
+      </div>
+
+      <div class="card-body card-tabela">
+        <table class="tabela-dados">
+          <thead>
+            <tr>
+              <th>Nome do Aluno</th>
+              <th>Média de Acertos</th>
+              <th>Formulários Pendentes</th>
+              <th>Principal Dificuldade (Tópico)</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>Amanda Costa</td>
+              <td>48%</td>
+              <td>1</td>
+              <td class="status-critico">Análise Combinatória</td>
+              <td><a href="#" class="btn btn-outline">Ver Aluno</a></td>
+            </tr>
+
+            <tr>
+              <td>Bruno Silva</td>
+              <td>92%</td>
+              <td>0</td>
+              <td class="status-ok">Nenhuma</td>
+              <td><a href="#" class="btn btn-outline">Ver Aluno</a></td>
+            </tr>
+
+            <tr>
+              <td>Carla Dias</td>
+              <td>65%</td>
+              <td>0</td>
+              <td class="status-atencao">Leis de Newton</td>
+              <td><a href="#" class="btn btn-outline">Ver Aluno</a></td>
+            </tr>
+
+            <tr>
+              <td>Diego Martins</td>
+              <td>55%</td>
+              <td>0</td>
+              <td class="status-critico">Análise Combinatória</td>
+              <td><a href="#" class="btn btn-outline">Ver Aluno</a></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div> <div class="card-footer">
+        <a href="#" class="btn btn-primario">Exportar Relatório (.csv)</a>
+      </div>
+    </div> </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 - AEP (Unicesumar). Todos os direitos reservados.</p>
+  </div>
+</footer>

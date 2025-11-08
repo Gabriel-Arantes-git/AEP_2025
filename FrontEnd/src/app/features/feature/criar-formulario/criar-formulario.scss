@@ -1,0 +1,87 @@
+/* 1. Importa as variáveis globais */
+@use '../../../styles/variables.scss' as *;
+
+/* 2. Estilos específicos do componente (de formularios.css) */
+
+/* Bloco de uma única questão */
+.questao-bloco {
+  padding: 1.5rem;
+  border: 1px solid $cor-borda;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  background-color: $cor-fundo-secundario; /* Fundo cinza leve */
+}
+input{
+  width: 250px;
+}
+.questao-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $cor-borda;
+}
+
+.questao-header h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: $cor-primaria;
+}
+
+.questao-header .btn-remover-questao {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.8rem;
+  background-color: transparent;
+  color: $cor-perigo;
+  border: 1px solid $cor-perigo;
+}
+.questao-header .btn-remover-questao:hover {
+  background-color: $cor-perigo;
+  color: $cor-fundo;
+}
+
+/* Grid para os campos de opções e resposta correta */
+.grid-opcoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+/* Container para as opções de múltipla escolha */
+.opcoes-resposta .form-group {
+  /* Remove a margem de baixo padrão para um visual mais limpo */
+  margin-bottom: 0.75rem;
+}
+.opcoes-resposta label {
+  font-weight: 400; /* Labels das opções mais leves */
+}
+
+/* Botão de Adicionar Questão */
+.btn-add-questao {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border-style: dashed;
+  background-color: $cor-fundo-secundario;
+  color: $cor-secundaria;
+  border-color: $cor-secundaria;
+}
+.btn-add-questao:hover {
+  background-color: #e6f0ff; /* Azul bem claro */
+  border-color: $cor-primaria;
+  color: $cor-primaria;
+}
+
+/* Botões de Ação no final da página */
+.form-acoes-rodape {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  background-color: $cor-fundo;
+  border: 1px solid $cor-borda;
+  border-radius: 8px;
+}
